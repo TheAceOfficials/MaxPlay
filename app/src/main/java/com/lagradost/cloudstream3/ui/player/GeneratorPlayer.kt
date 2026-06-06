@@ -1424,11 +1424,12 @@ class GeneratorPlayer : FullScreenPlayer() {
                     val label = format.label
                         ?: (if (format.height == NO_VALUE || format.width == NO_VALUE) index.toString() else "${format.width}x${format.height}")
                         
+                    val h = format.height ?: 0
                     val badge = when {
-                        format.height >= 2160 -> "4K"
-                        format.height >= 1080 -> "FHD"
-                        format.height >= 720 -> "HD"
-                        format.height > 0 -> "SD"
+                        h >= 2160 -> "4K"
+                        h >= 1080 -> "FHD"
+                        h >= 720 -> "HD"
+                        h > 0 -> "SD"
                         else -> ""
                     }
                     
