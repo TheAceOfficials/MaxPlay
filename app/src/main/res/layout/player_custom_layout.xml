@@ -321,14 +321,19 @@
                         android:id="@+id/player_lock_holder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
-                        <ImageView
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/player_lock"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:background="?selectableItemBackgroundBorderless"
-                            android:padding="12dp"
-                            android:src="@drawable/ic_baseline_lock_open_24"
-                            app:tint="@color/white" />
+                            app:icon="@drawable/video_unlocked"
+                            app:iconTint="@color/white"
+                            app:iconSize="24dp"
+                            app:iconPadding="0dp"
+                            app:iconGravity="textStart"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:padding="0dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -341,7 +346,7 @@
                             android:layout_height="48dp"
                             android:background="?selectableItemBackgroundBorderless"
                             android:padding="12dp"
-                            android:src="@drawable/baseline_view_list_24"
+                            android:src="@drawable/baseline_list_alt_24"
                             app:tint="@color/white" />
                         <TextView
                             android:id="@+id/player_episodes_button_text"
@@ -350,14 +355,16 @@
                             android:visibility="gone" />
                     </LinearLayout>
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/player_speed_btt"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackgroundBorderless"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_baseline_speed_24"
-                        app:tint="@color/white" />
+                        android:gravity="center"
+                        android:text="1x"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/player_sources_btt"
@@ -365,7 +372,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:padding="12dp"
-                        android:src="@drawable/ic_baseline_source_24"
+                        android:src="@drawable/ic_baseline_storage_24"
                         app:tint="@color/white" />
 
                     <ImageView
@@ -383,7 +390,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:padding="12dp"
-                        android:src="@drawable/baseline_fast_forward_24"
+                        android:src="@drawable/ic_baseline_fast_forward_24"
                         app:tint="@color/white" />
 
                     <ImageView
@@ -392,7 +399,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:padding="12dp"
-                        android:src="@drawable/baseline_skip_next_24"
+                        android:src="@drawable/ic_baseline_skip_next_24"
                         app:tint="@color/white" />
                 </LinearLayout>
             </LinearLayout>
