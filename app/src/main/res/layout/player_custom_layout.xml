@@ -456,27 +456,27 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <FrameLayout
+        <RelativeLayout
             android:id="@+id/player_progressbar_left_holder"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:visibility="gone">
-            <ImageView android:id="@+id/player_progressbar_left_icon" android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" app:tint="@color/white" />
-            <ProgressBar android:id="@+id/player_progressbar_left_level1" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" />
-            <ProgressBar android:id="@+id/player_progressbar_left_level2" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" />
-        </FrameLayout>
+            <ImageView android:id="@+id/player_progressbar_left_icon" android:layout_width="40dp" android:layout_height="40dp" android:layout_centerInParent="true" app:tint="@color/white" />
+            <ProgressBar android:id="@+id/player_progressbar_left_level1" android:layout_width="80dp" android:layout_height="80dp" android:layout_centerInParent="true" />
+            <ProgressBar android:id="@+id/player_progressbar_left_level2" android:layout_width="80dp" android:layout_height="80dp" android:layout_centerInParent="true" />
+        </RelativeLayout>
 
-        <FrameLayout
+        <RelativeLayout
             android:id="@+id/player_progressbar_right_holder"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:visibility="gone">
-            <ImageView android:id="@+id/player_progressbar_right_icon" android:layout_width="40dp" android:layout_height="40dp" android:layout_gravity="center" app:tint="@color/white" />
-            <ProgressBar android:id="@+id/player_progressbar_right_level1" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" />
-            <ProgressBar android:id="@+id/player_progressbar_right_level2" android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" />
-        </FrameLayout>
+            <ImageView android:id="@+id/player_progressbar_right_icon" android:layout_width="40dp" android:layout_height="40dp" android:layout_centerInParent="true" app:tint="@color/white" />
+            <ProgressBar android:id="@+id/player_progressbar_right_level1" android:layout_width="80dp" android:layout_height="80dp" android:layout_centerInParent="true" />
+            <ProgressBar android:id="@+id/player_progressbar_right_level2" android:layout_width="80dp" android:layout_height="80dp" android:layout_centerInParent="true" />
+        </RelativeLayout>
 
         <FrameLayout
             android:id="@+id/subtitle_holder"
