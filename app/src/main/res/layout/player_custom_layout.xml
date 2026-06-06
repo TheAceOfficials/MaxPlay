@@ -858,83 +858,91 @@
 
                     <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_speed_btt"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                    <LinearLayout
+                        android:id="@+id/player_lock_holder"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        app:icon="@drawable/ic_baseline_speed_24"
-                        app:iconTint="@color/white"
-                        tools:text="Speed"
-                        android:nextFocusLeft="@+id/player_lock"
-                        android:nextFocusRight="@+id/player_sources_btt" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_sources_btt"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="@string/video_source"
-                        app:icon="@drawable/ic_baseline_playlist_play_24"
-                        app:iconTint="@color/white"
-                        android:nextFocusLeft="@+id/player_speed_btt"
-                        android:nextFocusRight="@+id/player_tracks_btt" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_speed_btt"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            app:icon="@drawable/ic_baseline_speed_24"
+                            app:iconTint="@color/white"
+                            tools:text="Speed"
+                            android:nextFocusLeft="@+id/player_lock"
+                            android:nextFocusRight="@+id/player_sources_btt" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_tracks_btt"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="@string/tracks"
-                        app:icon="@drawable/ic_baseline_equalizer_24"
-                        app:iconTint="@color/white"
-                        android:nextFocusLeft="@+id/player_sources_btt"
-                        android:nextFocusRight="@+id/player_skip_op" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_sources_btt"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="@string/video_source"
+                            app:icon="@drawable/ic_baseline_playlist_play_24"
+                            app:iconTint="@color/white"
+                            android:nextFocusLeft="@+id/player_speed_btt"
+                            android:nextFocusRight="@+id/player_tracks_btt" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_skip_op"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="@string/video_skip_op"
-                        app:icon="@drawable/ic_baseline_fast_forward_24"
-                        app:iconTint="@color/white"
-                        android:nextFocusLeft="@+id/player_tracks_btt"
-                        android:nextFocusRight="@+id/player_skip_episode" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_tracks_btt"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="@string/tracks"
+                            app:icon="@drawable/ic_baseline_equalizer_24"
+                            app:iconTint="@color/white"
+                            android:nextFocusLeft="@+id/player_sources_btt"
+                            android:nextFocusRight="@+id/player_skip_op" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_skip_episode"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="@string/next_episode"
-                        app:icon="@drawable/ic_baseline_skip_next_24"
-                        app:iconTint="@color/white"
-                        android:nextFocusLeft="@+id/player_skip_op"
-                        android:nextFocusRight="@+id/player_lock" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_skip_op"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="@string/video_skip_op"
+                            app:icon="@drawable/ic_baseline_fast_forward_24"
+                            app:iconTint="@color/white"
+                            android:nextFocusLeft="@+id/player_tracks_btt"
+                            android:nextFocusRight="@+id/player_skip_episode" />
 
-                    <!-- Keep hidden but present to not break Kotlin logic -->
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_rotate_btt"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:visibility="invisible" />
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_resize_btt"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:visibility="invisible" />
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/player_subtitle_offset_btt"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:visibility="invisible" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_skip_episode"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="@string/next_episode"
+                            app:icon="@drawable/ic_baseline_skip_next_24"
+                            app:iconTint="@color/white"
+                            android:nextFocusLeft="@+id/player_skip_op"
+                            android:nextFocusRight="@+id/player_lock" />
 
+                        <!-- Keep hidden but present to not break Kotlin logic -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_rotate_btt"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:visibility="invisible" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_resize_btt"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:visibility="invisible" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/player_subtitle_offset_btt"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:visibility="invisible" />
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
