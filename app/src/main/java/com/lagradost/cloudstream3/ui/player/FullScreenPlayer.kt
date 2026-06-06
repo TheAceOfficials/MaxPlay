@@ -305,10 +305,18 @@ open class FullScreenPlayer : AbstractPlayerFragment<FragmentPlayerBinding>(
             }
         }
         playerBinding?.playerMetadataScrim?.let {
-            ObjectAnimator.ofFloat(it, "translationY", 1f).apply {
-                duration = 200
-                start()
+            if (isShowing) {
+                it.isVisible = true
             }
+            it.animate()
+                .alpha(if (isShowing) 1f else 0f)
+                .setDuration(200)
+                .withEndAction {
+                    if (!isShowing) {
+                        it.isVisible = false
+                    }
+                }
+                .start()
         }
 
         val playerBarMove = if (isShowing) 0f else 50.toPx.toFloat()

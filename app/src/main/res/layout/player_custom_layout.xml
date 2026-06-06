@@ -21,10 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="bottom"
             android:paddingStart="64dp"
             android:paddingEnd="32dp"
-            android:paddingBottom="32dp">
+            android:paddingBottom="120dp">
 
             <!-- TITLE / LOGO -->
             <FrameLayout
@@ -764,16 +764,16 @@
                         android:layout_width="0dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        app:bar_height="2dp"
+                        app:bar_height="3dp"
                         app:layout_constraintBottom_toBottomOf="@id/exo_position"
                         app:layout_constraintEnd_toStartOf="@id/exo_duration"
                         app:layout_constraintStart_toEndOf="@+id/exo_position"
-                        app:played_color="?attr/colorPrimary"
+                        app:played_color="#E50914"
 
-                        app:scrubber_color="?attr/colorPrimary"
-                        app:scrubber_dragged_size="26dp"
-                        app:scrubber_enabled_size="24dp"
-                        app:unplayed_color="@color/videoProgress" />
+                        app:scrubber_color="#E50914"
+                        app:scrubber_dragged_size="22dp"
+                        app:scrubber_enabled_size="18dp"
+                        app:unplayed_color="#80FFFFFF" />
 
                     <TextView
                         android:id="@id/exo_duration"
