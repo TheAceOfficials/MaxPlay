@@ -17,4 +17,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/text1"
     style="@style/CheckLabel"
+    android:paddingTop="18dp"
+    android:paddingBottom="18dp"
+    android:textSize="15sp"
     tools:text="hello" />

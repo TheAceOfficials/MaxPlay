@@ -1110,11 +1110,29 @@ class GeneratorPlayer : FullScreenPlayer() {
                         sourceIndex = startSource
 
                         val sourcesArrayAdapter =
-                            ArrayAdapter<String>(ctx, R.layout.sort_bottom_single_choice)
+                            ArrayAdapter<CharSequence>(ctx, R.layout.sort_bottom_single_choice)
 
                         sourcesArrayAdapter.addAll(sortedUrls.map { (link, uri) ->
                             val name = link?.name ?: uri?.name ?: "NULL"
-                            "$name ${Qualities.getStringByInt(link?.quality)}"
+                            val qualStr = Qualities.getStringByInt(link?.quality)
+                            val badge = when(qualStr) {
+                                "1080p" -> "FHD"
+                                "2160p", "4K" -> "4K"
+                                "720p" -> "HD"
+                                "480p", "360p" -> "SD"
+                                else -> qualStr
+                            }
+                            
+                            val spannable = android.text.SpannableStringBuilder()
+                            spannable.append(name)
+                            if (!badge.isNullOrBlank()) {
+                                spannable.append("   ")
+                                val start = spannable.length
+                                spannable.append(badge)
+                                spannable.setSpan(android.text.style.ForegroundColorSpan(android.graphics.Color.parseColor("#E50914")), start, spannable.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                                spannable.setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start, spannable.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                            }
+                            spannable
                         })
 
                         providerList.choiceMode = AbsListView.CHOICE_MODE_SINGLE
@@ -1400,11 +1418,30 @@ class GeneratorPlayer : FullScreenPlayer() {
                 }
 
                 val videosArrayAdapter =
-                    ArrayAdapter<String>(ctx, R.layout.sort_bottom_single_choice)
+                    ArrayAdapter<CharSequence>(ctx, R.layout.sort_bottom_single_choice)
 
                 videosArrayAdapter.addAll(currentVideoTracks.mapIndexed { index, format ->
-                    format.label
-                        ?: (if (format.height == NO_VALUE || format.width == NO_VALUE) index else "${format.width}x${format.height}").toString()
+                    val label = format.label
+                        ?: (if (format.height == NO_VALUE || format.width == NO_VALUE) index.toString() else "${format.width}x${format.height}")
+                        
+                    val badge = when {
+                        format.height >= 2160 -> "4K"
+                        format.height >= 1080 -> "FHD"
+                        format.height >= 720 -> "HD"
+                        format.height > 0 -> "SD"
+                        else -> ""
+                    }
+                    
+                    val spannable = android.text.SpannableStringBuilder()
+                    spannable.append(label)
+                    if (badge.isNotEmpty()) {
+                        spannable.append("   ")
+                        val start = spannable.length
+                        spannable.append(badge)
+                        spannable.setSpan(android.text.style.ForegroundColorSpan(android.graphics.Color.parseColor("#E50914")), start, spannable.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        spannable.setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD), start, spannable.length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    }
+                    spannable
                 })
 
                 videosList.choiceMode = AbsListView.CHOICE_MODE_SINGLE
